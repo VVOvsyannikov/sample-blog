@@ -1,0 +1,17 @@
+<h1><%= t('articles.edit') %></h1>
+
+<%= form_for :article, url: article_path(@article), method: :put, data: { turbo: false } do |f| %>
+<p>
+	<%= f.label t('articles.label_title') %><br />
+	<%= f.text_field :title %>
+</p>
+
+<p>
+	<%= f.label t('articles.label_text') %><br />
+	<%= f.text_area :text %>
+</p>
+
+<p>
+	<%= f.submit %>
+</p>
+<% end %>

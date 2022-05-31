@@ -1,0 +1,7 @@
+<h1><%= t('contacts.title') %></h1>
+
+<% @contacts.each do |contact| %>
+<p>Email: <%= contact.email %></p>
+<p>Message: <%= contact.message %></p>
+<hr />
+<% end %>

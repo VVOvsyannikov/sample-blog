@@ -1,0 +1,30 @@
+<h1><%= t('articles.index_title') %></h1>
+
+<% @articles.each do |article| %>
+
+<h2>
+	<%= article.title %>
+</h2>
+
+<p>
+	<%= article.text %>
+</p>
+
+<div style="float: left; width: 76px;">
+	<%= button_to t('articles.show_button'), article_path(article), method: :get, class: "btn btn-sm btn-outline-dark d-md-block", :style => 'width: 70px' %>
+</div>
+<% if article.author && current_user && article.author == current_user.username %>
+
+<div style="float: left; width: 76px;">
+	<%= button_to t('articles.edit_button'), edit_article_path(article), method: :get, class: "btn btn-sm btn-outline-dark d-md-block", :style => 'width: 70px' %>
+</div>
+<div style="float: left; width: 76px;">
+	<%= button_to t('articles.delete_button'), article_path(article), method: :delete, class: "btn btn-sm btn-outline-dark d-md-block", :style => 'width: 70px'%>
+</div>
+
+<% end %>
+<div></br>
+</div>
+<hr />
+
+<% end %>
